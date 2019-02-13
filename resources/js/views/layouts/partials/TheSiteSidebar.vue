@@ -237,6 +237,12 @@
             <router-link to="/admin/users/all">
               All Users
             </router-link>
+            <router-link to="/admin/roles/all">
+              All Roles
+            </router-link>
+            <router-link to="/admin/permissions/all">
+              All Permission
+            </router-link>
           </v-collapse-item>
 
           <v-collapse-item active-url="/admin/apps">

@@ -78,7 +78,7 @@
         </v-dropdown>
       </li>
       <li>
-        <v-dropdown :show-arrow="false">
+        <v-dropdown :show-arrow="false" style="background-color: transparent">
           <a
             slot="activator"
             href="#"
@@ -86,8 +86,10 @@
             aria-haspopup="true"
             aria-expanded="false"
             class="avatar"
+            style="background-color: transparent"
           >
-            <img src="/assets/img/avatars/avatar.png" alt="Avatar">
+            <img v-if="user" :src="'/assets/img/avatars/'+user.avatar" alt="Avatar" style="border-radius: 50%">
+            <img v-else src="/assets/img/avatars/avatar.png" alt="Avatar" style="border-radius: 50%">
           </a>
           <v-dropdown-item>
             <router-link class="dropdown-item" to="/admin/settings">
@@ -98,7 +100,7 @@
             <a
               href="#"
               class="dropdown-item"
-              @click.prevent="logout"
+              @click.prevent="logoutClick"
             >
               <i class="icon-fa icon-fa-sign-out"/> Logout
             </a>
@@ -109,17 +111,21 @@
   </header>
 </template>
 <script type="text/babel">
-import Auth from '../../../services/auth'
-
+// import Auth from '../../../services/auth'
+import { mapGetters, mapActions } from 'vuex'
 export default {
+  computed: mapGetters([
+    'user',
+    'userPicture'
+  ]),
   methods: {
     onNavToggle () {
       this.$utils.toggleSidebar()
     },
-    logout () {
-      Auth.logout().then(() => {
-        this.$router.replace('/login')
-      })
+    ...mapActions(['logout']),
+    logoutClick () {
+      this.logout()
+      this.$router.replace('/login')
     }
   }
 }

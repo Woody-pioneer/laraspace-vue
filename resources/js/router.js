@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AuthService from './services/auth'
-
+import UserRouters from './views/routers/users/user-module-route.js'
 /*
  |--------------------------------------------------------------------------
  | Admin Views
@@ -64,10 +64,6 @@ import VideoGallery from './views/admin/gallery/VideoGallery.vue'
 // Apps
 import TodosApp from './views/admin/apps/todos/TodosApp.vue'
 import MailboxApp from './views/admin/apps/mailbox/MailboxApp.vue'
-
-// Users
-import Users from './views/admin/users/Users.vue'
-import Profile from './views/admin/users/Profile.vue'
 
 // Settings
 import Settings from './views/admin/Settings.vue'
@@ -298,15 +294,11 @@ const routes = [
       },
 
       // Users
+      ...UserRouters,
       {
-        path: 'users/profile',
-        component: Profile
+        path: 'permissions/all',
+        component: Permissions
       },
-      {
-        path: 'users/all',
-        component: Users
-      },
-
       // Apps
       {
         path: 'apps/mailbox',

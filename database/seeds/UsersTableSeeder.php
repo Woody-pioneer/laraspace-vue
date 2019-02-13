@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@laraspace.in',
             'name' => 'Jane Doe',
             'role' => 'admin',
+            'avatar'=>'default.png',
             'password' => bcrypt('admin@123')
         ]);
 
@@ -22,6 +23,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'shane@laraspace.in',
             'name' => 'Shane White',
             'role' => 'user',
+            'avatar'=>'default.png',
             'password' => bcrypt('hank@123')
         ]);
 
@@ -29,6 +31,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'adam@laraspace.in',
             'name' => 'Adam David',
             'role' => 'user',
+            'avatar'=>'default.png',
             'password' => bcrypt('jesse@123')
         ]);
     }

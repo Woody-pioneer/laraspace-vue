@@ -58,8 +58,8 @@
 
 <script type="text/babel">
 import {required, minLength, email} from 'vuelidate/lib/validators'
-import Auth from '../../services/auth'
-
+// import Auth from '../../services/auth'
+import {mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -83,11 +83,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['login']),
     validateBeforeSubmit () {
       this.$v.$touch()
 
       if (!this.$v.$error) {
-        Auth.login(this.loginData).then((res) => {
+        this.login(this.loginData).then((res) => {
           if (res) {
             this.$router.push('/admin/dashboard/basic')
           }
