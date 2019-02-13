@@ -51,7 +51,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'api.auth'], function (){
         Route::delete('/{id}',[
             'as' => 'admin.users.delete', 'uses' => 'Demo\PagesController@destroy'
         ]);
-
+        Route::post('',[
+            'as' => 'admin.users.store', 'uses' => 'Demo\PagesController@store'
+        ]);
+        Route::put('/{id}',[
+            'as' => 'admin.users.update', 'uses' => 'Demo\PagesController@update'
+        ]);
     });
 
 });

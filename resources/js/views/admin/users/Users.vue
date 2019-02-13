@@ -14,11 +14,10 @@
         </button>
       </div>
       <!-- Modal Component -->
-      <b-modal ref="addNewUser" hide-footer centered title="Bootstrap-Vue">
+      <b-modal ref="addNewUser" :title="userId > 0 ? 'Edit':'New' " hide-footer centered>
         <label for="inputName">Name</label>
         <b-form-input id="inputName"
                       v-model="user.name"
-                      :formatter="format"
                       type="text"
                       placeholder="Enter your name"
                       aria-describedby="inputNameHelp"/>
@@ -26,7 +25,6 @@
         <label for="inputEmail">Email</label>
         <b-form-input id="inputEmail"
                       v-model="user.email"
-                      :formatter="format"
                       type="email"
                       placeholder="Enter your email"
                       aria-describedby="inputEmailHelp"/>
@@ -80,11 +78,9 @@
                       <i class="icon-fa icon-fa-search"/> View
                     </a>
                   </router-link>
-                  <router-link to="/admin/users/profile">
-                    <a class="btn btn-default btn-sm" @click="editUser(row.id)">
-                      <i class="icon-fa icon-fa-edit"/> Edit
-                    </a>
-                  </router-link>
+                  <a class="btn btn-default btn-sm" @click="editUser(row.id)">
+                    <i class="icon-fa icon-fa-edit"/> Edit
+                  </a>
                 </template>
               </table-column>
             </table-component>
@@ -105,7 +101,8 @@ export default {
   data () {
     return {
       selected: [],
-      users: [],
+      users: {},
+      userId: 0,
       user: {
         name: null,
         email: null,
@@ -123,8 +120,7 @@ export default {
       ]
     }
   },
-  async created () {
-    this.users = await this.getUsers(1).data
+  created () {
   },
   methods: {
     format (value, event) {
@@ -133,8 +129,7 @@ export default {
     async getUsers ({ page, filter, sort }) {
       try {
         const response = await axios.get(`/api/admin/users/get?page=${page}`)
-
-        return {
+        this.users = {
           data: response.data.data,
           pagination: {
             totalPages: response.data.last_page,
@@ -142,6 +137,7 @@ export default {
             count: response.data.count
           }
         }
+        return this.users
       } catch (error) {
         if (error) {
           window.toastr['error']('There was an error', 'Error')
@@ -157,61 +153,44 @@ export default {
         },
         submitCallback: function () {
           self.selected.map(id => {
-            console.log(id)
-            // self.deleteUserData(id)
+            self.deleteUserData(id)
           })
-          // self.deleteUserData(id)
+          window.toastr['success']('User Deleted', 'Success')
         }
       })
     },
     editUser (id) {
-      let self = this
-      window.notie.confirm({
-        text: 'Are you sure?',
-        cancelCallback: function () {
-          window.toastr['info']('Cancel')
-        },
-        submitCallback: function () {
-          self.deleteUserData(id)
-        }
-      })
+      this.userId = id
+      this.user = this.users.data.find(user => user.id === id)
+      console.log(this.user)
+      this.$refs.addNewUser.show()
     },
     async deleteUserData (id) {
       try {
         let response = await window.axios.delete('/api/admin/users/' + id)
         this.users = response.data
-        window.toastr['success']('User Deleted', 'Success')
       } catch (error) {
         if (error) {
           window.toastr['error']('There was an error', 'Error')
         }
       }
     },
-    onSubmit () {
-      this.saved = false
-      axios.post('api/admin/users', this.signature)
-        .then(({data}) => this.setSuccessMessage())
-        .catch(({response}) => this.setErrors(response))
-    },
-
-    setErrors (response) {
-      this.errors = response.data.errors
-    },
-
-    setSuccessMessage () {
-      this.reset()
-      this.saved = true
-    },
-
     reset () {
-      this.errors = []
+      this.userId = 0
       this.user = {name: null, email: null, role: 'user', avatar: 'default.png'}
     },
     showAddNewUserModal () {
       this.$refs.addNewUser.show()
     },
-    hideAddNewUserModal () {
+    hideAddNewUserModal: function () {
       this.$refs.addNewUser.hide()
+      if (this.userId > 0) {
+        axios.put(`/api/admin/users/${this.userId}`, this.user)
+      } else {
+        axios.post(`/api/admin/users`, this.user)
+        this.$router.go('/admin/users/all')
+      }
+      this.reset()
     }
   }
 }

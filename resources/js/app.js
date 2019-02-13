@@ -10,10 +10,9 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 require('./bootstrap')
-Vue.use(BootstrapVue);
+Vue.use(BootstrapVue)
 Vue.prototype.$utils = utils
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

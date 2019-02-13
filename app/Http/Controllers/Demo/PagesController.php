@@ -18,13 +18,38 @@ class PagesController extends Controller
 
     public function allUsers()
     {
-       return $users = User::whereRole('user')->paginate(5);
+       return $users = User::paginate(5);
     }
 
     public function destroy($id)
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return $users = User::all();
+        return $users = User::paginate(5);
+    }
+    public function store(Request $request)
+    {
+        $user = new User();
+        $user->name=$request->get('name');
+        $user->email=$request->get('email');
+        $user->avatar=$request->get('avatar');
+        $user->role=$request->get('role');
+        $user->password=app('hash')->make('123456');
+        $user->save();
+        return $users = User::paginate(5);
+
+
+    }
+    public function update(Request $request,$id)
+    {
+        $user = User::findOrFail($id);
+        $user->name=$request->get('name');
+        $user->email=$request->get('email');
+        $user->avatar=$request->get('avatar');
+        $user->role=$request->get('role');
+        $user->save();
+        return $users = User::paginate(5);
+
+
     }
 }
