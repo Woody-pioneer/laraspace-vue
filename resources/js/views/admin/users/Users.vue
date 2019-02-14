@@ -9,7 +9,7 @@
       </ol>
       <div class="page-actions">
         <b-btn variant="primary" @click="showAddNewUserModal"><i class="icon-fa icon-fa-plus"/>New User</b-btn>
-        <button class="btn btn-danger" @click="deleteUser">
+        <button :disabled="selected.length ? false : true" class="btn btn-danger" @click="deleteUser">
           <i class="icon-fa icon-fa-trash"/> Delete
         </button>
       </div>
@@ -71,6 +71,7 @@
                 :sortable="false"
                 :filterable="false"
                 label="Action"
+                class="pull-right"
               >
                 <template slot-scope="row">
                   <router-link to="/admin/users/profile">

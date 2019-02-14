@@ -27,6 +27,12 @@
     </a>
     <ul class="action-list">
       <li>
+        <div v-if="$route.name !== 'locale'">
+          <router-link :to="{ name: 'locale' }">{{ $t('change-lang') }}
+          </router-link>
+        </div>
+      </li>
+      <li>
         <v-dropdown :show-arrow="false">
           <a slot="activator" href="#">
             <i class="icon-fa icon-fa-plus"/>

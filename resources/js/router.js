@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AuthService from './services/auth'
 import UserRouters from './views/routers/users/user-module-route.js'
+import PageLocale from './views/admin/language/PageLocale.vue'
 /*
  |--------------------------------------------------------------------------
  | Admin Views
@@ -385,7 +386,8 @@ const routes = [
   },
 
   //  DEFAULT ROUTE
-  { path: '*', component: NotFoundPage }
+  { path: '*', component: NotFoundPage },
+  { path: '/locale', name: 'locale', component: PageLocale }
 ]
 
 const router = new VueRouter({
