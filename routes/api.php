@@ -23,7 +23,7 @@ Route::group(['prefix' => 'auth'], function () {
 
 // session route
 Route::post('email-exist',[
-    'as' => 'email-exist','uses' => 'Demo\PagesController@emailExist'
+    'as' => 'email-exist','uses' => 'Users\UsersController@emailExist'
 ]);
 
 // admin route
@@ -45,19 +45,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'api.auth'], function (){
     Route::group(['prefix' => 'users'], function (){
 
         Route::get('/get',[
-            'as' => 'admin.users', 'uses' => 'Demo\PagesController@allUsers'
+            'as' => 'admin.users', 'uses' => 'Users\UsersController@allUsers'
         ]);
 
         Route::delete('/{id}',[
-            'as' => 'admin.users.delete', 'uses' => 'Demo\PagesController@destroy'
+            'as' => 'admin.users.delete', 'uses' => 'Users\UsersController@destroy'
         ]);
         Route::post('',[
-            'as' => 'admin.users.store', 'uses' => 'Demo\PagesController@store'
+            'as' => 'admin.users.store', 'uses' => 'Users\UsersController@store'
         ]);
         Route::put('/{id}',[
-            'as' => 'admin.users.update', 'uses' => 'Demo\PagesController@update'
+            'as' => 'admin.users.update', 'uses' => 'Users\UsersController@update'
         ]);
     });
-
+    Route::resource('roles','Users\RolesController');
 });
 
