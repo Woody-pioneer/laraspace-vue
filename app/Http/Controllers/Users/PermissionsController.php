@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Controllers\Demo;
+namespace App\Http\Controllers\Users;
 
-use App\Permission;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,37 +11,38 @@ class PermissionsController extends Controller
 
     public function index()
     {
-       return $users = Permission::paginate(5);
+       $permissions = Permission::paginate(2);
+       return response()->json($permissions);
     }
 
     public function destroy($id)
     {
-        $user = Permission::findOrFail($id);
-        $user->delete();
-        return $users = Permission::paginate(5);
+        $permission = Permission::findOrFail($id);
+        $permission->delete();
+        return $permissions = Permission::paginate(5);
     }
     public function store(Request $request)
     {
-        $user = new Permission();
-        $user->name=$request->get('name');
-        $user->email=$request->get('email');
-        $user->avatar=$request->get('avatar');
-        $user->role=$request->get('role');
-        $user->password=app('hash')->make('123456');
-        $user->save();
-        return $users = Permission::paginate(5);
+        $permission = new Permission();
+        $permission->name=$request->get('name');
+        $permission->email=$request->get('email');
+        $permission->avatar=$request->get('avatar');
+        $permission->role=$request->get('role');
+        $permission->password=app('hash')->make('123456');
+        $permission->save();
+        return $permissions = Permission::paginate(5);
 
 
     }
     public function update(Request $request,$id)
     {
-        $user = Permission::findOrFail($id);
-        $user->name=$request->get('name');
-        $user->email=$request->get('email');
-        $user->avatar=$request->get('avatar');
-        $user->role=$request->get('role');
-        $user->save();
-        return $users = Permission::paginate(5);
+        $permission = Permission::findOrFail($id);
+        $permission->name=$request->get('name');
+        $permission->email=$request->get('email');
+        $permission->avatar=$request->get('avatar');
+        $permission->role=$request->get('role');
+        $permission->save();
+        return $permissions = Permission::paginate(2);
 
 
     }

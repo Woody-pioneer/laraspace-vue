@@ -3,7 +3,6 @@
  * include Vue and Vue Resource. This gives a great starting point for
  * building robust, powerful web applications using Vue and Laravel.
  */
-import Vue from 'vue'
 import router from './router.js'
 import utils from './helpers/utilities'
 import ThemeSwitcher from './components/ThemeSwitcher'
@@ -24,6 +23,7 @@ async function main () {
   const locale = getAutoLang()
   const i18n = await createI18n(locale)
   await store.dispatch('init')
+
   const app = new Vue({
     router,
     i18n, // Inject i18n into the app

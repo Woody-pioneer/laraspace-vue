@@ -132,12 +132,7 @@
             </h5>
             <form class="was-validated">
               <div class="custom-control custom-checkbox mb-3">
-                <input
-                  id="customControlValidation1"
-                  type="checkbox"
-                  class="custom-control-input"
-                  required
-                >
+                <input id="customControlValidation1" type="checkbox" class="custom-control-input" required>
                 <label class="custom-control-label" for="customControlValidation1">
                   Check this customcheckbox
                 </label>

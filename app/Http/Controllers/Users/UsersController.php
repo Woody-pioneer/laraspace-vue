@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Demo;
+namespace App\Http\Controllers\Users;
 
 use App\Models\User;
 use Illuminate\Http\Request;

@@ -12,13 +12,7 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    user: state => state.user,
-    userPicture: (state, getters) => {
-      const user = getters.user
-      if (user) {
-        return user.avatar
-      }
-    }
+    user: state => state.user
   },
 
   mutations: {

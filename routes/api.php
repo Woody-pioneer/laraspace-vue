@@ -59,5 +59,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'api.auth'], function (){
         ]);
     });
     Route::resource('roles','Users\RolesController');
+    Route::resource('permissions','Users\PermissionsController');
 });
 
