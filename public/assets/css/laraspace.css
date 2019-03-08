@@ -28913,6 +28913,28 @@ easy-pie-chart canvas {
   padding: 0 20px;
 }
 
+#top p {
+  text-align: center;
+}
+
+#top-links {
+  padding-top: 6px;
+}
+
+#top-links .dropdown-menu a {
+  margin-left: 15px;
+  text-shadow: none;
+}
+
+#top-links .dropdown-menu a :hover {
+  color: #FFF;
+}
+
+#top-links .btn-link {
+  font-size: 14px;
+  line-height: 14px;
+}
+
 #content {
   min-height: 600px;
 }
@@ -28923,6 +28945,10 @@ footer {
   background-color: #303030;
   border-top: 1px solid #ddd;
   color: #e2e2e2;
+}
+
+footer p {
+  text-align: center;
 }
 
 
