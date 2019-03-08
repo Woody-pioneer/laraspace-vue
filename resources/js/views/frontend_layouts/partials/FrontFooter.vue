@@ -1,0 +1,54 @@
+<template>
+    <div class="container">
+        <div class="row">
+          
+            <div class="col-sm-3">
+                <h5> text_information </h5>
+                <ul class="list-unstyled">
+                  
+                    <li><a href=" information.href "> information.title </a></li>
+                  
+                </ul>
+            </div>
+           
+            <div class="col-sm-3">
+                <h5> text_service </h5>
+                <ul class="list-unstyled">
+                    <li><a href=" contact "> text_contact </a></li>
+                    <li><a href=" return "> text_return </a></li>
+                    <li><a href=" sitemap "> text_sitemap </a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5> text_extra </h5>
+                <ul class="list-unstyled">
+                    <li><a href=" manufacturer "> text_manufacturer </a></li>
+                    <li><a href=" voucher "> text_voucher </a></li>
+                    <li><a href=" affiliate "> text_affiliate </a></li>
+                    <li><a href=" special "> text_special </a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5> text_account </h5>
+                <ul class="list-unstyled">
+                    <li><a href=" account "> text_account </a></li>
+                    <li><a href=" order "> text_order </a></li>
+                    <li><a href=" wishlist "> text_wishlist </a></li>
+                    <li><a href=" newsletter "> text_newsletter </a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p>Powerder By</p>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "FrontFooter"
+    }
+</script>
+
+<style scoped>
+
+</style>
