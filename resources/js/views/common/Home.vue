@@ -1,7 +1,7 @@
 <template>
   <div>
     <FrontLayout>
-      <div slot="content">
+      <div slot="content" class="container">
         test conent home
       </div>
     </FrontLayout>

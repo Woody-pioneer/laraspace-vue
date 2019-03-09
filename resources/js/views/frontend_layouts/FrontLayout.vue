@@ -1,8 +1,7 @@
 <template>
-  <div class="container">
-    <nav id="top">
-      <FrontHeader>Header</FrontHeader>
-    </nav>
+  <div>
+    <FrontTop></FrontTop>
+    <FrontHeader>Header</FrontHeader>
     <slot name="content"/>
     <footer>
       <FrontFooter>Footer</FrontFooter>
@@ -12,9 +11,10 @@
 <script>
 import FrontHeader from './partials/FrontHeader'
 import FrontFooter from './partials/FrontFooter'
+import FrontTop from "./partials/FrontTop";
 export default {
   name: 'FrontLayout',
-  components: {FrontFooter, FrontHeader}
+  components: {FrontTop, FrontFooter, FrontHeader}
 }
 </script>
 

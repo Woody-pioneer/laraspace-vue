@@ -1,6 +1,15 @@
 // Add Your Frontend site styles here
 
 /* top */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+  width: 100%;
+}
+
 #top {
   background-color: #EEEEEE;
   border-bottom: 1px solid #e2e2e2;
@@ -27,6 +36,13 @@
   .btn-link{
     font-size: 14px;
     line-height: 14px;
+  }
+  .list-inline {
+    li {
+      display: inline-block;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
   }
 }
 
