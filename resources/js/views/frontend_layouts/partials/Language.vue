@@ -2,7 +2,7 @@
   <b-nav-item-dropdown left>
     <!-- Using button-content slot -->
     <template slot="button-content"><b-img :src="'/images/flags/'+locale.avatar"/></template>
-    <b-dropdown-item v-for="language in languages" v-if="language.id!=locale.id" :key="language.id"><b-img :src="'/images/flags/'+language.avatar"/>  {{ language.name }}</b-dropdown-item>
+    <b-dropdown-item v-for="language in languages" v-if="language.id!=locale.id" :key="language.id" @click="changeLang(language.id)"><b-img :src="'/images/flags/'+language.avatar"/>  {{ language.name }}</b-dropdown-item>
   </b-nav-item-dropdown>
 </template>
 
@@ -32,8 +32,8 @@ export default {
     ...mapGetters(['locale'])
   },
   methods: {
-    toggle: function () {
-
+    changeLang: function (lang) {
+      this.$emit('change-lang', lang)
     }
   }
 }

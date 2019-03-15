@@ -4,8 +4,8 @@
       <b-navbar-toggle target="nav_collapse" />
       <b-collapse id="nav_collapse" is-nav>
         <b-navbar-nav>
-          <Language></Language>
-          <Currency></Currency>
+          <Language @change-lang="test"/>
+          <Currency/>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
@@ -26,11 +26,17 @@
 </template>
 
 <script>
-import Language from "./Language";
-import Currency from "./Currency";
+import Language from './Language'
+import Currency from './Currency'
+import {mapActions} from 'vuex'
 export default {
   name: 'FrontTop',
-  components: {Currency, Language}
+  components: {Currency, Language},
+  methods:{
+    ...mapActions({
+      test: 'changeLanguage'
+    })
+  }
 }
 </script>
 

@@ -44,6 +44,8 @@ global.axios = require('axios')
 global.axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest'
 }
+
+console.log(window.axios.defaults.headers)
 /**
  * Global Axios Request Interceptor
  */

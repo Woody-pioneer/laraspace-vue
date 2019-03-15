@@ -62,6 +62,18 @@ export default new Vuex.Store({
       } catch (error) {
         console.log('Error', error.message)
       }
+    },
+    async changeLanguage ({commit, dispatch}, data) {
+      try {
+         const response = await axios.get(`http://opbasicservice.bonnetech.net/api/v1/languages/${data}`)
+         console.log(response.data)
+        // commit('locale', response)
+        // Ls.set('locale', data)
+        // toastr['success']('change!', 'Success')
+        console.log(`store data ${data}`)
+      } catch (error) {
+        console.log('Error', error.message)
+      }
     }
   }
 })
