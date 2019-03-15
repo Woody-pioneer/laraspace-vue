@@ -1155,20 +1155,20 @@
                   <span>icon-fa-file-code-o</span>
                 </div>
               </div>
-              <div class="demo-icon">
+              <Fdiv class="demo-icon">
                 <div class="icon-box">
                   <i class="icon-fa icon-fa-file-excel-o"/>
                 </div>
                 <div class="icon-classname">
                   <span>icon-fa-file-excel-o</span>
                 </div>
-              </div>
+              </Fdiv>
               <div class="demo-icon">
                 <div class="icon-box">
                   <i class="icon-fa icon-fa-file-image-o"/>
                 </div>
                 <div class="icon-classname">
-                  <span>icon-fa-file-image-o</span>
+                  <span>icon-fa-fFile-image-o</span>
                 </div>
               </div>
               <div class="demo-icon">

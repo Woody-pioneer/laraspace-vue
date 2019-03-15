@@ -8,16 +8,28 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state () {
     return {
-      user: null
+      user: null,
+      locale: {
+        id: 1,
+        name: 'English',
+        code: 'en',
+        avatar: 'ca.png'
+      },
+      currency: null
     }
   },
   getters: {
-    user: state => state.user
+    user: state => state.user,
+    locale: state => state.locale,
+    currency: state => state.currency
   },
 
   mutations: {
     user: (state, user) => {
       state.user = user
+    },
+    locale: (state, locale) => {
+      state.locale = locale
     }
   },
   actions: {

@@ -1,31 +1,36 @@
 <template>
-  <nav id="top">
-    <div class="container">
-      <slot name="language"/>
-      <slot name="currency"/>
-      <div id="top-links" class="nav pull-right">
-        <ul class="list-inline">
-          <li><a href="countact"> <i class="icon-fa icon-fa-phone"/></a> <span class="hidden-xs hidden-sm hidden-md"> telephone </span></li>
-          <li class="dropdown">
-            <a href=" account " title=" text_account " class="dropdown-toggle" data-toggle="dropdown"><i class="icon-fa icon-fa-user"/> <span class="hidden-xs hidden-sm hidden-md"> account </span> <span class="caret"/></a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href=" register ">register </a></li>
-              <li><a href=" login ">login </a></li>
-            </ul>
-          </li>
-          <li><a id="wishlist-total" href=" wishlist " title=" text_wishlist "><i class="icon-fa icon-fa-heart"/> <span class="hidden-xs hidden-sm hidden-md"> wishlist </span></a></li>
-          <li><a href=" shopping_cart " title=" text_shopping_cart "><i class="icon-fa icon-fa-shopping-cart"/> <span class="hidden-xs hidden-sm hidden-md"> shopping_cart </span></a>
-          </li>
-          <li><a href=" checkout " title=" text_checkout "><i class="icon-fa icon-fa-share"/> <span class="hidden-xs hidden-sm hidden-md">checkout </span></a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <div id="top">
+    <b-navbar toggleable="lg" variant="info">
+      <b-navbar-toggle target="nav_collapse" />
+      <b-collapse id="nav_collapse" is-nav>
+        <b-navbar-nav>
+          <Language></Language>
+          <Currency></Currency>
+        </b-navbar-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item href="#"><i class="icon-fa icon-fa-phone"/>123456789</b-nav-item>
+          <b-nav-item-dropdown right>
+            <!-- Using button-content slot -->
+            <template slot="button-content"><i class="icon-fa icon-fa-user"/><em>My Account</em></template>
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item href="#">Signout</b-dropdown-item>
+          </b-nav-item-dropdown>
+          <b-nav-item href="#"><i class="icon-fa icon-fa-heart"/>Wish List(0)</b-nav-item>
+          <b-nav-item href="#"><i class="icon-fa icon-fa-shopping-basket"/>Shopping Cart</b-nav-item>
+          <b-nav-item href="#"><i class="icon-fa icon-fa-refresh"/>Checkout</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
+import Language from "./Language";
+import Currency from "./Currency";
 export default {
-  name: 'FrontTop'
+  name: 'FrontTop',
+  components: {Currency, Language}
 }
 </script>
 
