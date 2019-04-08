@@ -1,7 +1,8 @@
 <template>
   <div>
-    <FrontTop></FrontTop>
+    <FrontTop/>
     <FrontHeader>Header</FrontHeader>
+    <MainMenu></MainMenu>
     <slot name="content"/>
     <footer>
       <FrontFooter>Footer</FrontFooter>
@@ -12,11 +13,10 @@
 import FrontHeader from './partials/FrontHeader'
 import FrontFooter from './partials/FrontFooter'
 import FrontTop from './partials/FrontTop'
-import Language from './partials/Language'
-import Currency from './partials/Currency'
+import MainMenu from "./partials/MainMenu";
 export default {
   name: 'FrontLayout',
-  components: {Currency, Language, FrontTop, FrontFooter, FrontHeader}
+  components: {MainMenu, FrontTop, FrontFooter, FrontHeader}
 }
 </script>
 

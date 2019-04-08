@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./resources/js/i18n/fr/home.js"],"names":[],"mappings":";;;;;;;;;;;kBAAe;AACb,UAAQ;AADK,C","file":"17.js","sourcesContent":["export default {\n  'home': 'Maison'\n}\n\n\n\n// WEBPACK FOOTER //\n// ./resources/js/i18n/fr/home.js"],"sourceRoot":""}

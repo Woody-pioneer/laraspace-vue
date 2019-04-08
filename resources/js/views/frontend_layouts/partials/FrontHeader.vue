@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3 col-lg-4">
           <div id="logo">
-            <h1><a href="/">HOME</a></h1>
+            <h1><a href="/">{{ $t('home') }}</a></h1>
               </div>
         </div>
         <div class="col-md-5">

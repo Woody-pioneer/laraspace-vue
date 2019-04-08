@@ -16,7 +16,7 @@ import VCollapseItem from './components/collapse/VCollapseItem'
  */
 import 'vue-tabs-component/docs/resources/tabs-component.css'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
-import 'vue2-dropzone/dist/vue2Dropzone.css'
+
 
 /**
  * Global plugins
@@ -42,10 +42,10 @@ global.Vue = require('vue')
 global.axios = require('axios')
 
 global.axios.defaults.headers.common = {
-  'X-Requested-With': 'XMLHttpRequest'
+  'X-Requested-With': 'XMLHttpRequest',
+  'Accept': 'application/json',
+  'Content-Type': 'application/jsonp'
 }
-
-console.log(window.axios.defaults.headers)
 /**
  * Global Axios Request Interceptor
  */

@@ -1,8 +1,9 @@
 <template>
   <b-nav-item-dropdown left>
     <!-- Using button-content slot -->
-    <template slot="button-content"><b-img :src="'/images/flags/'+locale.avatar"/></template>
-    <b-dropdown-item v-for="language in languages" v-if="language.id!=locale.id" :key="language.id" @click="changeLang(language.id)"><b-img :src="'/images/flags/'+language.avatar"/>  {{ language.name }}</b-dropdown-item>
+    <template slot="button-content">{{ language.name }}</template>
+    <template slot="button-content"/>
+    <b-dropdown-item v-for="lan in languages" v-if="lan.id != language.id " :key="lan.id" @click="changeLang(lan.id)"><b-img :src="'/images/flags/'+lan.image"/>  {{ lan.name }}</b-dropdown-item>
   </b-nav-item-dropdown>
 </template>
 
@@ -12,24 +13,18 @@ export default {
   name: 'Language',
   data: function () {
     return {
-      languages: [
-        {
-          id: 1,
-          name: 'English',
-          code: 'en',
-          avatar: 'ca.png'
-        },
-        {
-          id: 2,
-          name: 'French',
-          code: 'fr',
-          avatar: 'fr.png'
-        }
-      ]
+      languages: []
     }
   },
   computed: {
-    ...mapGetters(['locale'])
+    ...mapGetters({
+      language: 'Language/language'
+    })
+  },
+
+  async created () {
+    const response = await axios.get(`http://opbasicservice.bonnetech.net/api/v1/languages`)
+    this.languages = response.data.data
   },
   methods: {
     changeLang: function (lang) {
@@ -37,6 +32,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>

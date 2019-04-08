@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./resources/js/lang/es/home.js"],"names":[],"mappings":";;;;;;;;;;;kBAAe;AACb,UAAQ;AADK,C","file":"12.js","sourcesContent":["export default {\n  'home': 'Casa'\n}\n\n\n\n// WEBPACK FOOTER //\n// ./resources/js/lang/es/home.js"],"sourceRoot":""}

@@ -2,7 +2,7 @@
   <div>
     <FrontLayout>
       <div slot="content" class="container">
-        test conent home
+        <product/>
       </div>
     </FrontLayout>
   </div>
@@ -10,9 +10,10 @@
 
 <script>
 import FrontLayout from '../frontend_layouts/FrontLayout'
+import Product from '../product/Product'
 export default {
   name: 'Home',
-  components: {FrontLayout}
+  components: {Product, FrontLayout}
 }
 </script>
 

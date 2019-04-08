@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./resources/js/lang/en/login.js"],"names":[],"mappings":";;;;;;;;;;;kBAAe;AACb,aAAW;AADE,C","file":"11.js","sourcesContent":["export default {\n  'desktop': 'Desktop'\n}\n\n\n\n// WEBPACK FOOTER //\n// ./resources/js/lang/en/login.js"],"sourceRoot":""}

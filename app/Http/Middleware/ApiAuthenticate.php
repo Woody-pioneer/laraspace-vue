@@ -20,11 +20,11 @@ class ApiAuthenticate
      */
     public function handle($request, Closure $next)
     {
-       /* if (JWTAuth::getToken() && JWTAuth::parseToken()->authenticate()) {
-            $user = JWTAuth::parseToken()->authenticate();
-        } else {
-            return response()->json(['error' => 'user_not_found'], 404);
-        }*/
+//        if (JWTAuth::getToken() && JWTAuth::parseToken()->authenticate()) {
+//            $user = JWTAuth::parseToken()->authenticate();
+//        } else {
+//            return response()->json(['error' => 'user_not_found'], 404);
+//        }
         return $next($request);
     }
 }

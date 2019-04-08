@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 136:
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10,15 +10,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  'change-lang': 'Sprache ändern',
-  'lang': {
-    'en': 'English',
-    'fr': 'Français',
-    'es': 'Español',
-    'de': 'Deutsch'
-  },
-  'back': 'Zurück',
-  'powered-by': 'Powered By'
+  'home': 'Home'
 };
 
 /***/ })

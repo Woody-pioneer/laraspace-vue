@@ -14,6 +14,7 @@ require('./bootstrap')
 Vue.use(BootstrapVue)
 Vue.prototype.$utils = utils
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -25,10 +26,10 @@ async function main () {
   await store.dispatch('init')
 
   const app = new Vue({
-    router,
     i18n, // Inject i18n into the app
+    router,
     store,
-    // Theme Swiching Demo Component (You can remove it if not required)
+    // Theme Switching Demo Component (You can remove it if not required)
     components: {
       ThemeSwitcher
     }

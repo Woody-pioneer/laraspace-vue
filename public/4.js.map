@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./resources/js/lang/zh/login.js"],"names":[],"mappings":";;;;;;;;;;;kBAAe;AACb,aAAW;AADE,C","file":"4.js","sourcesContent":["export default {\n  'desktop': '电脑'\n}\n\n\n\n// WEBPACK FOOTER //\n// ./resources/js/lang/zh/login.js"],"sourceRoot":""}
